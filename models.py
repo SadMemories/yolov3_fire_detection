@@ -103,6 +103,9 @@ def create_modules(module_defs, img_size, cfg):
         elif mdef['type'] == 'reorg3d':  # yolov3-spp-pan-scale
             pass
 
+        elif mdef['type'] == 'se':
+            modules = SELayer(output_filters[-1], int(mdef['reduction']))
+
         elif mdef['type'] == 'yolo':
             yolo_index += 1  # 记录第几个YOLO层 [0, 1, 2]
             '''

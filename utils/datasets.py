@@ -78,6 +78,8 @@ class LoadImages:  # for inference
         if self.video_flag[self.count]:
             # Read video
             self.mode = 'video'
+            # cap.read()按帧读取视频，ret,frame是获cap.read()方法的两个返回值。
+            # 其中ret是布尔值，如果读取帧是正确的则返回True，如果文件读取到结尾，它的返回值就为False。frame就是每一帧的图像，是个三维矩阵
             ret_val, img0 = self.cap.read()
             if not ret_val:
                 self.count += 1
